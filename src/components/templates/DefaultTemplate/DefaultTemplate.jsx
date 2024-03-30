@@ -1,3 +1,4 @@
+import Footer from 'src/components/atoms/Footer';
 import Header from '../../atoms/Header';
 import { Wrapper } from './styled';
 
@@ -8,6 +9,7 @@ const DefaultTemplate = ({ children }) => {
 
       {children}
 
+      <Footer />
     </Wrapper>
   )
 }

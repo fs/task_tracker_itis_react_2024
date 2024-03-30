@@ -9,21 +9,12 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const Nav = styled.nav`
-  ul {
-    list-style-type: none;
-    padding: 0;
-    gap: 30px;
-  }
-
-  li {
-    display: inline;
-    margin-right: 10px;
-  }
-
   a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    gap: 30px;
+    margin-right: 10px;
   }
 
   a:hover {
