@@ -1,12 +1,12 @@
 import React from 'react';
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 
-const HomePage = () => {
+const ProjectsPage = () => {
   return (
     <DefaultTemplate>
-      <h1>Home Page</h1>
+      <h1>Projects Page</h1>
     </DefaultTemplate>
   );
 };
 
-export default HomePage;
+export default ProjectsPage;

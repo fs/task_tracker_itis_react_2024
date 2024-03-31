@@ -1,15 +1,16 @@
-import Header from '../../atoms/Header';
-import { Wrapper } from './styled';
+import React from 'react';
+import { Box } from '@chakra-ui/react';
+import Header from "../../atoms/Header";
+import Footer from "../../atoms/Footer/Footer";
 
 const DefaultTemplate = ({ children }) => {
   return (
-    <Wrapper>
+    <Box>
       <Header />
-
-      {children}
-
-    </Wrapper>
-  )
-}
+      <Box p="4">{children}</Box>
+      <Footer />
+    </Box>
+  );
+};
 
 export default DefaultTemplate;

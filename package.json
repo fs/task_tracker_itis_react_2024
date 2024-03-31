@@ -4,7 +4,11 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.11",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "formik": "^2.2.9",
+    "framer-motion": "^11.0.24",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
