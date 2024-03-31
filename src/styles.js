@@ -2,6 +2,21 @@ import "react-toastify/dist/ReactToastify.css";
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+
+@keyframes headerAnimation {
+  0% {
+    transform: translateY(-10%);
+  }
+
+  50% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-10%);
+  }
+}
+
   * {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     box-sizing: border-box;
@@ -9,6 +24,7 @@ export default createGlobalStyle`
   html,
   body {
     height: 100%;
+    background: #EEE0CB;
   }
 
   html {
@@ -21,6 +37,37 @@ export default createGlobalStyle`
     margin: 0;
   }
 
+  h1 {
+    font-weight: 600;
+    font-size: 4rem;
+    color: #C2847A;
+    margin: 1rem 0 3rem 0;
+  }
+
+  h1 {
+    animation: headerAnimation 3s infinite;
+  }
+
+  h1:hover {
+    cursor: pointer;
+  }
+
+${'' /* h1:hover {
+  transition-duration: 0.75s;
+  cursor: pointer;
+  transform: translateY(-20%);
+}
+
+h1:not(:hover) {
+  transition-duration: 0.75s;
+  transform: translateY(0%);
+} */}
+
+p {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #280003;
+}
   :focus {
     outline: 0;
   }
