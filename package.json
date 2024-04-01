@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.11",
+    "bootstrap": "^5.3.3",
     "formik": "^2.2.9",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
