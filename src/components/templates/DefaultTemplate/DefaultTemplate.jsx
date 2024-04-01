@@ -1,4 +1,5 @@
 import Header from '../../atoms/Header';
+import Footer from '../../atoms/Footer'
 import { Wrapper } from './styled';
 
 const DefaultTemplate = ({ children }) => {
@@ -7,7 +8,7 @@ const DefaultTemplate = ({ children }) => {
       <Header />
 
       {children}
-
+      <Footer />
     </Wrapper>
   )
 }
