@@ -7,7 +7,9 @@ const Header = () => {
     <HeaderWrapper>
       Header
       <Nav>
-        <Link to="/">Home</Link>
+        <Link to="/">Home</Link>/
+        <Link to="/projects">Project</Link>
+        <Link to="/info">Info</Link>
       </Nav>
     </HeaderWrapper>
   )
