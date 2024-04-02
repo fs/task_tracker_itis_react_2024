@@ -3,7 +3,7 @@ import { Wrapper, StyledLink } from './styled';
 const Footer = () => {
   return (
     <Wrapper>
-      <StyledLink to="/info">© 2024 Stackers team</StyledLink>
+      <StyledLink to="/info">© 2024 Stackers team (Saveliy Rozhnov)</StyledLink>
     </Wrapper>
   );
 };
