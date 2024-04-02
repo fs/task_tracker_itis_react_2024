@@ -1,16 +1,17 @@
-import { Link } from 'react-router-dom';
-
-import { HeaderWrapper, Nav } from './styled';
+import React from "react";
+import { HeaderWrapper, Logo, Nav, NavLink } from "./styled";
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      Header
+      <Logo>Itis React</Logo>
       <Nav>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/info">Info</NavLink>
       </Nav>
     </HeaderWrapper>
-  )
-}
+  );
+};
 
 export default Header;
