@@ -1,12 +1,13 @@
+import React from 'react';
 import DefaultTemplate from "src/components/templates/DefaultTemplate"
 
 const HomePage = () => {
   return (
-    <DefaultTemplate>
-      <h1>Homepage</h1>
-      <p>some text</p>
-    </DefaultTemplate>
-  )
-}
+      <div>
+          <DefaultTemplate />
+          <h1>It is Home Page</h1>
+      </div>
+  );
+};
 
 export default HomePage;
