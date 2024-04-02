@@ -6,7 +6,7 @@ const Header = () => {
     <header>
       <nav>
         <div>
-          <p>itis react MK</p> {/* Text beside the links */}
+          <p>itis react MK</p> 
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/projects">Projects</Link></li>
