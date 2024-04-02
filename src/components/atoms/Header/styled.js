@@ -7,7 +7,19 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const Nav = styled.nav`
-  display flex;
-  align-items: center;
-  gap: 1rem;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  p {
+    color: white;
+    margin-right: 10px;
+  }
 `;
