@@ -1,5 +1,6 @@
+import Button from 'react-bootstrap/Button';
+
 import { mockProjects } from './mockProjects';
-import Button from '../../atoms/Button';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
 
