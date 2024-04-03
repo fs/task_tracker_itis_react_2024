@@ -1,13 +1,14 @@
-import { Link } from 'react-router-dom';
-
-import { HeaderWrapper, Nav } from './styled';
+import { HeaderWrapper, Nav, StyledLink } from './styled';
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      Header
+      Task Trakser
+
       <Nav>
-        <Link to="/">Home</Link>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/projects">Projects</StyledLink>
+        <StyledLink to="/info">Info</StyledLink>
       </Nav>
     </HeaderWrapper>
   )

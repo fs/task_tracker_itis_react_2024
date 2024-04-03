@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  height: 100vh;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  min-height: calc(100vh - 52px - 62px);
+  flex-grow: 1;
+  padding: 1rem;
 `;
