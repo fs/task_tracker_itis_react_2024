@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
 
 import Header from '../../atoms/Header';
 import Footer from '../../atoms/Footer';
-import Button from '../../atoms/Button';
 
 import { Wrapper, ButtonWrapper } from './styled';
 
@@ -20,7 +20,7 @@ const DefaultTemplate = ({ children }) => {
 
       {isButtonVisible && (
         <ButtonWrapper>
-          <Button label="Наверх" color="#fe45ae" onClick={scrollToTop} />
+          <Button variant="info" onClick={scrollToTop}>Наверх</Button>
         </ButtonWrapper>
       )}
 

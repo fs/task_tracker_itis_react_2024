@@ -1,5 +1,6 @@
+import Button from 'react-bootstrap/Button';
+
 import { mockProjects } from './mockProjects';
-import Button from '../../atoms/Button';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
 
@@ -24,9 +25,9 @@ const ProjectsTable = () => {
               <TableCol>{name}</TableCol>
               <TableCol>{description}</TableCol>
               <TableColActions>
-                <Button label="Edit" onClick={() => {}} color="#00ff00" />
-                <Button label="Show" onClick={() => {}} color="#0000ff" />
-                <Button label="Delete" onClick={() => {}} color="#ff0000" />
+                <Button variant="primary" onClick={() => {}}>Edit</Button>
+                <Button variant="warning" onClick={() => {}}>Show</Button>
+                <Button variant="danger" onClick={() => {}}>Delete</Button>
               </TableColActions>
             </tr>
           )
