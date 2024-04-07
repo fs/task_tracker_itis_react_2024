@@ -9,8 +9,20 @@ import { Wrapper, ButtonWrapper } from './styled';
 const DefaultTemplate = ({ children }) => {
   const [isButtonVisible, setIsButtonvisible] = useState(false);
 
-  const scrollToTop = () => {
+  // Handling the scrolling event
+  const handleScrolling = () => {
+    setIsButtonvisible(window.scrollY >= 200);
   };
+
+  // Handling the scroll-up functionality
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  window.addEventListener(`scroll`, handleScrolling);
 
   return (
     <>
