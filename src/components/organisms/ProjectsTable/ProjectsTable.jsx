@@ -12,6 +12,15 @@ const ProjectsTable = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState(null);
+  const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
+
+
+  // Remove project
+  const RemoveProject = (id) => {
+    // THIS FUNCTION AIN'T BASED ON ANY CRUD IMPL AND IS UNABLE TO ACTUALLY PERFORM THE DELETION, BUT JUST TO REMOVE THE PROJECT FROM THE CURRENT LIST "THE STATE GETS REVERTED AFTER ANY REFRESH" 
+    const updatedProjects = mockProjectsState.filter((project) => project.id !== id);
+    setMockProjectsState(updatedProjects);
+  };
 
   // Handling delete button clicked
   const HandleDeleteButton = (project) => {
@@ -21,9 +30,10 @@ const ProjectsTable = () => {
 
   // Handle modal's confirm deletion clicked
   const HandleConfirmDelete = () => {
-    // TODO: TO IMPLEMENT THE LOGIC HERE!
+    RemoveProject(projectToDelete.id);
     console.log('project has been deleted!');
     setShowModal(false);
+    setProjectToDelete(null);
   };
 
   // Handle modal cancel clicked
@@ -44,7 +54,7 @@ const ProjectsTable = () => {
       </thead>
 
       <tbody>
-        {mockProjects.map(({ id, name, description }) => {
+        {mockProjectsState.map(({ id, name, description }) => {
           return (
             <tr key={id}>
               <TableCol>{id}</TableCol>
