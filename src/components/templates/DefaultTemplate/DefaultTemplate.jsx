@@ -1,15 +1,22 @@
-import { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
+import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
 
-import Header from '../../atoms/Header';
-import Footer from '../../atoms/Footer';
+import Header from "../../atoms/Header";
+import Footer from "../../atoms/Footer";
 
-import { Wrapper, ButtonWrapper } from './styled';
+import { Wrapper, ButtonWrapper } from "./styled";
 
 const DefaultTemplate = ({ children }) => {
-  const [isButtonVisible, setIsButtonvisible] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
 
+  const handleScroll = () => {
+    setIsButtonVisible(window.scrollY > 0);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
   const scrollToTop = () => {
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -26,7 +33,7 @@ const DefaultTemplate = ({ children }) => {
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default DefaultTemplate;
