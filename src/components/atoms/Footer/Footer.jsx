@@ -1,13 +1,10 @@
-import React from "react";
-import { FooterWrapper, Nav } from "./styled";
+import { Wrapper, StyledLink } from './styled';
 
 const Footer = () => {
   return (
-    <FooterWrapper>
-      <Nav>
-        <p>This is the footer.</p>
-      </Nav>
-    </FooterWrapper>
+    <Wrapper>
+      <StyledLink to="/info">© 2024 Stackers team</StyledLink>
+    </Wrapper>
   );
 };
 

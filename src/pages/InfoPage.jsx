@@ -1,11 +1,14 @@
-import React from "react";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 
 const InfoPage = () => {
   return (
     <DefaultTemplate>
-      <h1>Info Page</h1>
-      <p>This is the information page.</p>
+      <h2>Stackers Lab</h2>
+      <ul>
+        <li>Developing applications</li>
+        <li>Leading courses in ITIS</li>
+        <li>We have many satisfied customers</li>
+      </ul>
     </DefaultTemplate>
   );
 };

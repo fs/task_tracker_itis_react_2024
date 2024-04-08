@@ -1,17 +1,23 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const FooterWrapper = styled.footer`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+export const Wrapper = styled.footer`
   display: flex;
-  justify-content: center;
+  justify-content: end;
+  align-items: center;
+  height: 52px;
+
+  padding: 1rem;
+  background-color: #3a74f7;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
 `;
 
-export const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+export const StyledLink = styled(Link)`
   color: white;
+
+  font-size: 1rem;
 `;

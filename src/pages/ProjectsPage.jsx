@@ -1,11 +1,12 @@
-import React from "react";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
+import ProjectsTable from '../components/organisms/ProjectsTable';
 
 const ProjectsPage = () => {
   return (
     <DefaultTemplate>
-      <h1>Projects Page</h1>
-      <p>This is the projects page.</p>
+      <h2>Projects List</h2>
+
+      <ProjectsTable />
     </DefaultTemplate>
   );
 };

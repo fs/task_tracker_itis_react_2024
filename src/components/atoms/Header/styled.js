@@ -1,34 +1,29 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const HeaderWrapper = styled.header`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 400px;
-  background: rgba(0, 0, 0, 0);
-  margin-top: 100px;
-`;
+  align-items: center;
 
-export const Logo = styled.div`
+  padding: 1rem;
+  background-color: #3a74f7;
   color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-size: 20px;
+
+  position: sticky;
+  height: 62px;
+  top: 0;
 `;
 
 export const Nav = styled.nav`
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 1rem;
 `;
 
-export const NavLink = styled(Link)`
+export const StyledLink = styled(Link)`
   color: white;
-  text-decoration: none;
-  transition: color 0.3s, background-color 0.3s;
 
-  &:hover {
-    color: lightgray;
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+  font-size: 1rem;
 `;

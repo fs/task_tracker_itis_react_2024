@@ -1,14 +1,14 @@
-import React from "react";
-import { HeaderWrapper, Logo, Nav, NavLink } from "./styled";
+import { HeaderWrapper, Nav, StyledLink } from './styled';
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo>Itis React</Logo>
+      Task Trakser
+
       <Nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/info">Info</NavLink>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/projects">Projects</StyledLink>
+        <StyledLink to="/info">Info</StyledLink>
       </Nav>
     </HeaderWrapper>
   );
