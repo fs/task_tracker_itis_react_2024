@@ -1,4 +1,4 @@
-import DefaultTemplate from "src/components/templates/DefaultTemplate"
+import DefaultTemplate from "../components/templates/DefaultTemplate"
 import data from "../components/organisms/ProjectTable/data";
 import ProjectInfo from "../components/atoms/ProjectInfo";
 import ProjectTable from "../components/organisms/ProjectTable/ProjectTable";

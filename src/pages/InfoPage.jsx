@@ -1,4 +1,5 @@
-import DefaultTemplate from "src/components/templates/DefaultTemplate"
+import DefaultTemplate from "../components/templates/DefaultTemplate";
+
 
 const InfoPage = () => {
   return (

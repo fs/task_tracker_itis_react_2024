@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { Link } from "react-router-dom";
 
 export const HeaderWrapper = styled.header`
@@ -40,4 +41,10 @@ export const NavLink = styled(Link)`
     //color: transparent;
     //-webkit-background-clip: text;
     //background-clip: text;
+`;
+
+export const StyledLink = styled(Link)`
+  color: white;
+
+  font-size: 1rem;
 `;
