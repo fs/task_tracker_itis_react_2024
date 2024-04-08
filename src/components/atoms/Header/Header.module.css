@@ -1,0 +1,8 @@
+.root {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    text-decoration: none;
+}

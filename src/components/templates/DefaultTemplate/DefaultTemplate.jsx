@@ -1,32 +1,23 @@
 import { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-
 import Header from '../../atoms/Header';
 import Footer from '../../atoms/Footer';
-
-import { Wrapper, ButtonWrapper } from './styled';
+import ScrollToTopButton from "../../molecules/ScrollToTopButton";
 
 const DefaultTemplate = ({ children }) => {
-  const [isButtonVisible, setIsButtonvisible] = useState(false);
-
-  const scrollToTop = () => {
-  };
+  // const [isButtonVisible, setIsButtonvisible] = useState(false);
+  // const scrollToTop = () => {
+  // };
 
   return (
-    <>
+    <div className="defaultTemplate">
       <Header />
-
-      <Wrapper>{children}</Wrapper>
-
-      {isButtonVisible && (
-        <ButtonWrapper>
-          <Button variant="info" onClick={scrollToTop}>Наверх</Button>
-        </ButtonWrapper>
-      )}
-
+      <div className="contentContainer">
+        {children}
+      </div>
       <Footer />
-    </>
-  )
-}
+      <ScrollToTopButton />
+    </div>
+  );
+};
 
 export default DefaultTemplate;

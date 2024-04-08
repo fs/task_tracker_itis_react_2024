@@ -1,12 +1,14 @@
-import DefaultTemplate from "src/components/templates/DefaultTemplate"
+// import DefaultTemplate from "src/components/templates/DefaultTemplate"
+
+import React from "react";
 
 const HomePage = () => {
   return (
-    <DefaultTemplate>
-      <h1>Homepage</h1>
-      <p>some text</p>
-    </DefaultTemplate>
-  )
-}
+    <div>
+      <h1>Home Page</h1>
+      <p>Welcome to the Photo Lab</p>
+    </div>
+  );
+};
 
 export default HomePage;

@@ -4,7 +4,7 @@ import { mockProjects } from './mockProjects';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
 
-const ProjectsTable = () => {
+const ProjectsTable = ({projects, onDelete}) => {
 
   return (
     <Table>
@@ -27,7 +27,7 @@ const ProjectsTable = () => {
               <TableColActions>
                 <Button variant="primary" onClick={() => {}}>Edit</Button>
                 <Button variant="warning" onClick={() => {}}>Show</Button>
-                <Button variant="danger" onClick={() => {}}>Delete</Button>
+                <Button variant="danger" onClick={() => onDelete(id)}>Delete</Button>
               </TableColActions>
             </tr>
           )

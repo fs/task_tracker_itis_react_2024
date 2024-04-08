@@ -1,16 +1,15 @@
-import DefaultTemplate from "../components/templates/DefaultTemplate";
+// import DefaultTemplate from "../components/templates/DefaultTemplate";
+
+import React from "react";
 
 const InfoPage = () => {
   return (
-    <DefaultTemplate>
-      <h2>Stackers Lab</h2>
-      <ul>
-        <li>Developing applications</li>
-        <li>Leading courses in ITIS</li>
-        <li>We have many satisfied customers</li>
-      </ul>
-    </DefaultTemplate>
+    <div>
+      <h1>Info Page</h1>
+      <p>Learn more about us here</p>
+    </div>
   );
 };
+
 
 export default InfoPage;

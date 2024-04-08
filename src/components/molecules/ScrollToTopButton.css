@@ -1,0 +1,11 @@
+.scroll-to-top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.scroll-to-top-button.visible {
+    display: block;
+}
