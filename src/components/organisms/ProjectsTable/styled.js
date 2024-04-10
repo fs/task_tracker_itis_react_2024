@@ -6,13 +6,15 @@ export const Table = styled.table`
 `;
 
 export const TableHead = styled.th`
-  padding: 1rem;
-  border-bottom: 1px solid grey;
+    padding: 1rem;
+    border-bottom: 1px solid #ffffff;
+    color: #FFFFFF;
 `;
 
 export const TableCol = styled.td`
-  padding: 1rem;
-  border-bottom: 1px solid grey;
+    padding: 1rem;
+    border-bottom: 1px solid #ffffff;
+    color: #FFFFFF;
 `;
 
 export const TableColActions = styled(TableCol)`

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import ProjectsTable from '../components/organisms/ProjectsTable';
 import DeleteConfirmationModal from "../components/molecules/DeleteConfirmationModal";
@@ -19,12 +20,21 @@ const ProjectsPage = () => {
     }
   };
 
+  const ProjectsPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/mnt/Radqueen/WebStorm Projects/photo-lab/src/images/goals2.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+`;
+
+
   return (
 
-
-    <DefaultTemplate>
-      <h2>Projects List</h2>
-
+    <ProjectsPageContainer>
       <ProjectsTable projects={mockProjects} onDelete={(id) => {
         setSelectedItemId(id);
         setShowModal(true);
@@ -34,8 +44,9 @@ const ProjectsPage = () => {
         onHide={() => setShowModal(false)}
         onConfirm={handleDelete}
       />
+    </ProjectsPageContainer>
 
-    </DefaultTemplate>
+
   );
 };
 

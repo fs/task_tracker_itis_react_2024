@@ -7,3 +7,9 @@
         onHide={() => setShowModal(false)}
         onConfirm={handleDelete}
       />
+
+
+      -------------------DEFAULT TEMPLATE------------------
+
+      {/*<div className="contentContainer">*/}
+      {/*</div>*/}
