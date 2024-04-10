@@ -7,10 +7,25 @@ import Footer from '../../atoms/Footer';
 import { Wrapper, ButtonWrapper } from './styled';
 
 const DefaultTemplate = ({ children }) => {
-  const [isButtonVisible, setIsButtonvisible] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
+
+  const position = () => {
+    setIsButtonVisible(window.scrollY > 100)
+  }
 
   const scrollToTop = () => {
+    window.scrollTo(0,0)
   };
+
+  useEffect(() => {
+    window.addEventListener('scroll', position);
+
+    return () => {
+      window.removeEventListener('scroll', position);
+    };
+  }, []);
+
+
 
   return (
     <>
@@ -20,7 +35,7 @@ const DefaultTemplate = ({ children }) => {
 
       {isButtonVisible && (
         <ButtonWrapper>
-          <Button variant="info" onClick={scrollToTop}>Наверх</Button>
+          <Button variant="info" onClick={scrollToTop}>↑</Button>
         </ButtonWrapper>
       )}
 

@@ -1,13 +1,35 @@
 import Button from 'react-bootstrap/Button';
 
+import { useState } from "react";
 import { mockProjects } from './mockProjects';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
 
+import DeleteModalWindow from "../../molecules/DeleteModalWindow";
+
 const ProjectsTable = () => {
 
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null)
+
+
+  const handleDeleteClick = (project) => {
+    setSelectedProject(project)
+    setShowDeleteModal(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    setShowDeleteModal(false);
+  };
+
+  const handleModalClose = () => {
+    setShowDeleteModal(false);
+  };
+
+
   return (
-    <Table>
+    <>
+        <Table>
       <thead>
         <tr>
           <TableHead>id</TableHead>
@@ -27,13 +49,20 @@ const ProjectsTable = () => {
               <TableColActions>
                 <Button variant="primary" onClick={() => {}}>Edit</Button>
                 <Button variant="warning" onClick={() => {}}>Show</Button>
-                <Button variant="danger" onClick={() => {}}>Delete</Button>
-              </TableColActions>
+                <Button variant="danger" onClick={() => handleDeleteClick({ id, name, description })}>Delete</Button>              </TableColActions>
             </tr>
           )
         })}
       </tbody>
     </Table>
+
+    <DeleteModalWindow
+      show={showDeleteModal}
+      onHide={handleModalClose}
+      onConfirm={handleDeleteConfirm}
+      id={selectedProject && selectedProject.id}
+    />
+  </>
   )
 }
 
