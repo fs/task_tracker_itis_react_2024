@@ -9,61 +9,67 @@ import { mockProjects } from './mockProjects';
 import { Table, TableHead, TableCol, TableColActions } from './styled';
 
 const ProjectsTable = () => {
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState(null);
+  const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
 
-  const handleDeleteButton = (project) => {
+  const handleOpenModal = (project) => {
     setProjectToDelete(project);
-    setShowDeleteModal(true);
+    setIsModalOpen(true);
   }
 
-  const handleDeleteCancelButton = () => {
+  const handleCancelButton = () => {
     setProjectToDelete(null);
-    setShowDeleteModal(false);
+    setIsModalOpen(false);
   }
 
-  const handleDeleteConfirmButton = () => {
-    // тут как будто удалили проект
+  const handleConfirmButton = () => {
+    const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
+    setMockProjectsState(updatedProjects);
+
     setProjectToDelete(null);
-    setShowDeleteModal(false);
+    setIsModalOpen(false);
   }
 
   return (
     <>
-    <Table>
-      <thead>
-        <tr>
-          <TableHead>id</TableHead>
-          <TableHead>Name</TableHead>
-          <TableHead>Description</TableHead>
-          <TableHead>Actions</TableHead>
-        </tr>
-      </thead>
+      <Table>
+        <thead>
+          <tr>
+            <TableHead>id</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Description</TableHead>
+            <TableHead>Actions</TableHead>
+          </tr>
+        </thead>
 
-      <tbody>
-        {mockProjects.map(({ id, name, description }) => {
-          return (
-            <tr key={id}>
-              <TableCol>{id}</TableCol>
-              <TableCol>{name}</TableCol>
-              <TableCol>{description}</TableCol>
-              <TableColActions>
-                <Button variant="light" onClick={() => {}}>Edit</Button>
-                <Button variant="light" onClick={() => {}}>Show</Button>
-                <Button variant="danger" onClick={() => {handleDeleteButton({ id, name, description })}}>Delete</Button>
-              </TableColActions>
-            </tr>
-          )
-        })}
-      </tbody>
-    </Table>
+        <tbody>
+          {mockProjectsState.map(({ id, name, description }) => {
+            return (
+              <tr key={id}>
+                <TableCol>{id}</TableCol>
+                <TableCol>{name}</TableCol>
+                <TableCol>{description}</TableCol>
 
-    { (showDeleteModal && (
-      <DeleteModal text={`The project "${projectToDelete.name}" will be permanently deleted. Are you sure?`}
-      onCancel={handleDeleteCancelButton}
-      onDelete={handleDeleteConfirmButton}
-      show={showDeleteModal} />))
-    }
+                <TableColActions>
+                  <Button variant="light" onClick={() => {}}>Edit</Button>
+                  <Button variant="light" onClick={() => {}}>Show</Button>
+                  <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
+                </TableColActions>
+              </tr>
+            )
+          })}
+        </tbody>
+      </Table>
+
+      {isModalOpen && (
+        <DeleteModal
+          projectName={projectToDelete.name}
+          onCancel={handleCancelButton}
+          onDelete={handleConfirmButton}
+          isOpen={isModalOpen}
+        />
+      )}
     </>
   );
 };
