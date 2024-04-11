@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button} from 'react-bootstrap';
 
-const DeleteModal = ({ text, onCancel, onDelete, show }) => {
+const DeleteModalButton = ({ text, onCancel, onDelete, show }) => {
   return (
   <Modal show={show} onHide={onCancel}>
     <Modal.Header closeButton>
@@ -20,4 +20,4 @@ const DeleteModal = ({ text, onCancel, onDelete, show }) => {
   )
 }
 
-export default DeleteModal;
+export default DeleteModalButton;

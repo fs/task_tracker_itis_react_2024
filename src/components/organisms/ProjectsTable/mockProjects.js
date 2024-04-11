@@ -74,29 +74,4 @@ export const mockProjects = [
     name: 'Проект 15',
     description: 'Описание проекта 15',
   },
-  {
-    id: 16,
-    name: 'Проект 16',
-    description: 'Описание проекта 16',
-  },
-  {
-    id: 17,
-    name: 'Проект 17',
-    description: 'Описание проекта 17',
-  },
-  {
-    id: 18,
-    name: 'Проект 18',
-    description: 'Описание проекта 18',
-  },
-  {
-    id: 19,
-    name: 'Проект 19',
-    description: 'Описание проекта 19',
-  },
-  {
-    id: 20,
-    name: 'Проект 20',
-    description: 'Описание проекта 20',
-  },
 ];
