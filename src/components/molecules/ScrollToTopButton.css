@@ -1,6 +1,7 @@
 .scroll-to-top-button {
     display: none;
     position: fixed;
+    color: #ffffff;
     bottom: 20px;
     right: 20px;
     z-index: 1000;

@@ -11,10 +11,11 @@ const DefaultTemplate = ({ children }) => {
   return (
 
     <div className="defaultTemplate">
+      <ScrollToTopButton />
       <Header />
       {children}
       <Footer />
-      <ScrollToTopButton />
+
     </div>
   );
 };

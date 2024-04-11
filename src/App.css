@@ -40,6 +40,7 @@
     background-image: url('/mnt/Radqueen/WebStorm Projects/photo-lab/src/images/goals2.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     height: 100vh;
     position: relative;
 }
@@ -57,7 +58,7 @@
 
 .defaultTemplate {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;

@@ -25,9 +25,9 @@ const ProjectsTable = ({projects, onDelete}) => {
               <TableCol>{name}</TableCol>
               <TableCol>{description}</TableCol>
               <TableColActions>
-                <Button variant="primary" onClick={() => {}}>Edit</Button>
-                <Button variant="warning" onClick={() => {}}>Show</Button>
-                <Button variant="danger" onClick={() => onDelete(id)}>Delete</Button>
+                <Button variant="btn btn-outline-primary" onClick={() => {}}>Edit</Button>
+                <Button variant="btn btn-outline-warning" onClick={() => {}}>Show</Button>
+                <Button variant="btn btn-outline-danger" onClick={() => onDelete(id)}>Delete</Button>
               </TableColActions>
             </tr>
           )
