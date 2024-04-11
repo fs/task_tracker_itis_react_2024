@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   position: fixed;
-  bottom: 53rem;
+  bottom: 4rem;
   right: 1rem;
   z-index: 1;
 `;

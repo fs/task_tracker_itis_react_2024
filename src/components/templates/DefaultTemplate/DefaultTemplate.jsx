@@ -8,6 +8,7 @@ import { Wrapper, ButtonWrapper } from './styled';
 
 const DefaultTemplate = ({ children }) => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
+
   const handleToggleVisibility = () => {
     if(window.scrollY > 200) {
       setIsButtonVisible(true);
