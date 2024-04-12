@@ -9,10 +9,18 @@ const Notifier = () => {
     if (message) {
       toast.success(message);
     }
-    clearMessage();
-  }, [message]);
 
-  return <ToastContainer position="top-center" autoClose={5000} closeOnClick hideProgressBar />;
+    clearMessage();
+  }, [message])
+
+  return (
+    <ToastContainer
+      position="top-center"
+      autoClose={5000}
+      closeOnClick
+      hideProgressBar
+    />
+  )
 };
 
 export default Notifier;

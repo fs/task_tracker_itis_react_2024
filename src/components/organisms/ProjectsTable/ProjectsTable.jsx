@@ -1,15 +1,18 @@
 import Button from 'react-bootstrap/Button';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import DeleteModal from '../../molecules/DeleteModal';
 
 import { mockProjects } from './mockProjects';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
+import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { setMessage } = useContext(NotifierContext)
+
   const [projectToDelete, setProjectToDelete] = useState(null);
   const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
 
@@ -28,6 +31,7 @@ const ProjectsTable = () => {
     setMockProjectsState(updatedProjects);
 
     setProjectToDelete(null);
+    setMessage('Проект удален')
     setIsModalOpen(false);
   }
 
@@ -64,7 +68,7 @@ const ProjectsTable = () => {
 
       {isModalOpen && (
         <DeleteModal
-          projectName={projectToDelete.name}
+          // projectName={mock.name}
           onCancel={handleCancelButton}
           onDelete={handleConfirmButton}
           isOpen={isModalOpen}
