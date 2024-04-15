@@ -23,7 +23,6 @@ const ProjectsTable = () => {
   }
 
   const handleDeleteConfirmButton = () => {
-    // тут как будто удалили проект
     setProjectToDelete(null);
     setShowDeleteModal(false);
   }
@@ -60,9 +59,10 @@ const ProjectsTable = () => {
 
     { (showDeleteModal && (
       <DeleteModal text={`The project "${projectToDelete.name}" will be permanently deleted. Are you sure?`}
+      projectName={projectToDelete.name}
       onCancel={handleDeleteCancelButton}
       onDelete={handleDeleteConfirmButton}
-      show={showDeleteModal} />))
+      isOpen={showDeleteModal} />))
     }
     </>
   );
