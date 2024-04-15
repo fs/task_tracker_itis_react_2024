@@ -11,7 +11,7 @@ import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setMessage } = useContext(NotifierContext)
+  const { setMessage,setErrorMessage } = useContext(NotifierContext)
 
   const [projectToDelete, setProjectToDelete] = useState(null);
   const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
@@ -29,7 +29,7 @@ const ProjectsTable = () => {
   const handleConfirmButton = () => {
     const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
     setMockProjectsState(updatedProjects);
-
+    setProjects(projects.filter(project => project.id !== projectToDelete.id))
     setProjectToDelete(null);
     setMessage('Проект удален')
     setIsModalOpen(false);
@@ -48,7 +48,7 @@ const ProjectsTable = () => {
         </thead>
 
         <tbody>
-          {mockProjectsState.map(({ id, name, description }) => {
+          {projects.map(({ id, name, description }) => {
             return (
               <tr key={id}>
                 <TableCol>{id}</TableCol>
