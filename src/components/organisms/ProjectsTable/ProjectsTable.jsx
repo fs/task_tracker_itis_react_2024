@@ -1,14 +1,17 @@
 import Button from 'react-bootstrap/Button';
 
-import { useState } from 'react';
+import { useContext, useState } from "react";
 
 import DeleteModal from '../../molecules/DeleteModal';
 
 import { mockProjects } from './mockProjects';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
+import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
+  const {setMessage} = useContext(NotifierContext);
+  const {setError} = useContext(NotifierContext);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState(null);
 
@@ -20,12 +23,14 @@ const ProjectsTable = () => {
   const handleDeleteCancelButton = () => {
     setProjectToDelete(null);
     setShowDeleteModal(false);
+    setError("Проект не был удален");
   }
 
   const handleDeleteConfirmButton = () => {
     // тут как будто удалили проект
     setProjectToDelete(null);
     setShowDeleteModal(false);
+    setMessage("Проект удален");
   }
 
   return (
