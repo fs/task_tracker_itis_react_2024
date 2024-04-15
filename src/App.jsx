@@ -8,14 +8,18 @@ import ProjectsPage from "./pages/ProjectsPage";
 
 const App = () => {
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
 
   const context = useMemo(
     () => ({
       message,
       setMessage: (text) => setMessage(text),
       clearMessage: () => setMessage(""),
+      messageType,
+      setMessageType: (text) => setMessageType(text),
+      clearMessageType: () => setMessageType(""),
     }),
-    [message],
+    [message, messageType]
   );
 
   return (

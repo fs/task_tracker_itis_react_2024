@@ -11,7 +11,7 @@ import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setMessage } = useContext(NotifierContext)
+  const { setMessage, setMessageType } = useContext(NotifierContext)
 
   const [projectToDelete, setProjectToDelete] = useState(null);
   const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
@@ -23,6 +23,8 @@ const ProjectsTable = () => {
 
   const handleCancelButton = () => {
     setProjectToDelete(null);
+    setMessage('Удаление проекта отменено');
+    setMessageType('error');
     setIsModalOpen(false);
   }
 
@@ -31,7 +33,8 @@ const ProjectsTable = () => {
     setMockProjectsState(updatedProjects);
 
     setProjectToDelete(null);
-    setMessage('Проект удален')
+    setMessage('Проект удален');
+    setMessageType('success');
     setIsModalOpen(false);
   }
 

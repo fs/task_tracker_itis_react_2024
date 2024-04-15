@@ -3,14 +3,19 @@ import { toast, ToastContainer } from "react-toastify";
 import NotifierContext from "../../../context/NotifierContext";
 
 const Notifier = () => {
-  const { message, clearMessage } = useContext(NotifierContext);
+  const { message, clearMessage, messageType, clearMessageType } = useContext(NotifierContext);
 
   useEffect(() => {
     if (message) {
-      toast.success(message);
+      if (messageType==="success") {
+        toast.success(message);
+      }
+      else if (messageType==="error") {
+        toast.error(message);
+      }
     }
-
     clearMessage();
+    clearMessageType();
   }, [message])
 
   return (
