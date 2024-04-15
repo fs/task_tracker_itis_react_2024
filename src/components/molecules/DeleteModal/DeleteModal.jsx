@@ -1,8 +1,7 @@
-import { useContext } from "react";
 import { Modal, Button } from 'react-bootstrap';
 
 
-const DeleteModal = ({ isOpen, projectName, onCancel, onDelete }) => {
+const DeleteModal = ({ isOpen, onCancel, onDelete }) => {
   const handleDeleteProject = () => {
     onDelete();
   };
