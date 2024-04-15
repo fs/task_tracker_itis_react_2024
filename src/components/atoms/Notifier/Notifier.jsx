@@ -4,14 +4,20 @@ import NotifierContext from "../../../context/NotifierContext";
 
 const Notifier = () => {
   const { message, clearMessage } = useContext(NotifierContext);
+  const { error, clearError } = useContext(NotifierContext);
+
 
   useEffect(() => {
     if (message) {
       toast.success(message);
+      clearMessage();
+    }
+    if (error) {
+      toast.error(error)
+      clearError();
     }
 
-    clearMessage();
-  }, [message])
+  }, [message, error])
 
   return (
     <ToastContainer
