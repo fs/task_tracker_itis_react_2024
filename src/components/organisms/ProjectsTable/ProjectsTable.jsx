@@ -1,16 +1,20 @@
 import Button from 'react-bootstrap/Button';
 
-import { useState } from 'react';
+import { useState, useContext} from 'react';
 
 import DeleteModal from '../../molecules/DeleteModal';
 
 import { mockProjects } from './mockProjects';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
+import NotifierContext from '../../../context/NotifierContext';
 
 const ProjectsTable = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const { setMessage, setErrorMessage } = useContext(NotifierContext)
+
   const [projectToDelete, setProjectToDelete] = useState(null);
+  const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
 
   const handleDeleteButton = (project) => {
     setProjectToDelete(project);
@@ -19,12 +23,16 @@ const ProjectsTable = () => {
 
   const handleDeleteCancelButton = () => {
     setProjectToDelete(null);
+    setErrorMessage('Проект не удален')
     setShowDeleteModal(false);
   }
 
   const handleDeleteConfirmButton = () => {
-    // тут как будто удалили проект
+    const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
+    setMockProjectsState(updatedProjects);
+    
     setProjectToDelete(null);
+    setMessage('Проект удален');
     setShowDeleteModal(false);
   }
 
@@ -41,7 +49,7 @@ const ProjectsTable = () => {
       </thead>
 
       <tbody>
-        {mockProjects.map(({ id, name, description }) => {
+        {mockProjectsState.map(({ id, name, description }) => {
           return (
             <tr key={id}>
               <TableCol>{id}</TableCol>
