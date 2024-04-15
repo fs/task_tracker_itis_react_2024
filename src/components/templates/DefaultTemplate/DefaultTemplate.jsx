@@ -4,9 +4,6 @@ import Footer from '../../atoms/Footer';
 import ScrollToTopButton from "../../molecules/ScrollToTopButton";
 
 const DefaultTemplate = ({ children }) => {
-  // const [isButtonVisible, setIsButtonvisible] = useState(false);
-  // const scrollToTop = () => {
-  // };
 
   return (
 

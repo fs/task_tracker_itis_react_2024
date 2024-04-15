@@ -13,3 +13,18 @@
 
       {/*<div className="contentContainer">*/}
       {/*</div>*/}
+
+
+      -------------Projects PAge=--------------------
+       <ProjectsPageContainer>
+             <ProjectsTable projects={mockProjects} onDelete={(id) => {
+               setSelectedItemId(id);
+               setShowModal(true);
+             }} />
+             <DeleteConfirmationModal
+               show={showModal}
+               onHide={() => setShowModal(false)}
+               onConfirm={handleDelete}
+             />
+             <Notifier/>
+           </ProjectsPageContainer>
