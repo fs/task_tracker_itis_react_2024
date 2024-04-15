@@ -12,6 +12,7 @@ import NotifierContext from "../../../context/NotifierContext";
 const ProjectsTable = () => {
   const {setMessage} = useContext(NotifierContext);
   const {setError} = useContext(NotifierContext);
+  const [projects, setProjects] = useState(mockProjects);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState(null);
 
@@ -27,7 +28,7 @@ const ProjectsTable = () => {
   }
 
   const handleDeleteConfirmButton = () => {
-    // тут как будто удалили проект
+    setProjects(projects.filter(project => project.id !== projectToDelete.id))
     setProjectToDelete(null);
     setShowDeleteModal(false);
     setMessage("Проект удален");
@@ -46,7 +47,7 @@ const ProjectsTable = () => {
       </thead>
 
       <tbody>
-        {mockProjects.map(({ id, name, description }) => {
+        {projects.map(({ id, name, description }) => {
           return (
             <tr key={id}>
               <TableCol>{id}</TableCol>
