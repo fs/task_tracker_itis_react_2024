@@ -16,7 +16,7 @@ const Notifier = () => {
     }
     clearMessage();
     clearMessageType();
-  }, [message])
+  }, [message, messageType])
 
   return (
     <ToastContainer
