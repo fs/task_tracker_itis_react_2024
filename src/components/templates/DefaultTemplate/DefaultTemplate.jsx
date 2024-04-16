@@ -9,9 +9,19 @@ import { Wrapper, ButtonWrapper } from './styled';
 const DefaultTemplate = ({ children }) => {
   const [isButtonVisible, setIsButtonvisible] = useState(false);
 
-  const scrollToTop = () => {
-  };
+  const position=()=>{
+    setIsButtonvisible(window.screenY > 185)
+  }
 
+  const scrollToTop = () => {
+    window.scrollTo(0,0)
+  };
+  useEffect(()=>{
+    window.addEventListener('scroll',position);
+    return()=>{
+      window.removeEventListener('scroll',position);
+    };
+  },[]);
   return (
     <>
       <Header />
