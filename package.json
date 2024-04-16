@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.7.11",
+    "@apollo/client": "^3.9.11",
     "bootstrap": "^5.3.3",
     "formik": "^2.2.9",
-    "graphql": "^16.6.0",
+    "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",

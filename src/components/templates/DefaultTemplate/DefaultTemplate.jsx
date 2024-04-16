@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 
 import Header from '../../atoms/Header';
 import Footer from '../../atoms/Footer';
+import Notifier from "../../atoms/Notifier";
 
 import { Wrapper, ButtonWrapper } from './styled';
-import Notifier from "../../atoms/Notifier";
 
 const DefaultTemplate = ({ children }) => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
@@ -39,8 +39,10 @@ const DefaultTemplate = ({ children }) => {
           <Button variant="dark" onClick={scrollToTop}>Наверх</Button>
         </ButtonWrapper>
       )}
+
       <Footer />
-      <Notifier/>
+
+      <Notifier />
     </>
   )
 }
