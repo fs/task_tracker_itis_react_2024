@@ -1,25 +1,25 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useMemo } from "react";
 import NotifierContext from "./context/NotifierContext";
-
 import HomePage from "./pages/HomePage";
 import InfoPage from "./pages/InfoPage";
 import ProjectsPage from "./pages/ProjectsPage";
 
 const App = () => {
   const [message, setMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState("");
+
 
   const context = useMemo(
     () => ({
       message,
-      errorMessage,
       setMessage: (text) => setMessage(text),
-      setErrorMessage: (errorText) => setErrorMessage(errorText),
       clearMessage: () => setMessage(""),
-      clearErrorMessage: () => setErrorMessage(""),
+      error,
+      setError: (textError) => setError(textError),
+      clearError: () => setError(""),
     }),
-    [message, errorMessage],
+    [message, error],
   );
 
   return (
@@ -35,5 +35,5 @@ const App = () => {
     </NotifierContext.Provider>
   );
 };
-
 export default App;
+

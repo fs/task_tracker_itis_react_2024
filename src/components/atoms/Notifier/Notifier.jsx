@@ -1,21 +1,23 @@
 import React, { useEffect, useContext } from "react";
-
 import { toast, ToastContainer } from "react-toastify";
-
 import NotifierContext from "../../../context/NotifierContext";
 
 const Notifier = () => {
-  const { message, clearMessage, errorMessage, clearErrorMessage} = useContext(NotifierContext);
+  const { message, clearMessage } = useContext(NotifierContext);
+  const { error, clearError } = useContext(NotifierContext);
+
   useEffect(() => {
     if (message) {
       toast.success(message);
       clearMessage();
     }
-    if (errorMessage) {
-      toast.error(errorMessage);
-      clearErrorMessage();
+    if (error) {
+      toast.error(error)
+      clearError();
     }
-  }, [message, errorMessage, clearMessage, clearErrorMessage]);
+
+  }, [message, error])
+
   return (
     <ToastContainer
       position="top-center"
@@ -25,5 +27,4 @@ const Notifier = () => {
     />
   )
 };
-
 export default Notifier;
