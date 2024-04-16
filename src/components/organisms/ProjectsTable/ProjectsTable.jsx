@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Button from 'react-bootstrap/Button';
 
 import { useState, useContext } from 'react';
@@ -11,7 +12,7 @@ import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setMessage } = useContext(NotifierContext)
+  const { setMessage, setErrorMessage } = useContext(NotifierContext)
 
   const [projectToDelete, setProjectToDelete] = useState(null);
   const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
