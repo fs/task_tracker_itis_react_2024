@@ -6,6 +6,7 @@ const NotifierContext = createContext({
   clearMessage: () => {},
   errorMessage: null,
   setErrorMessage: () => {}
+
 });
 
 export default NotifierContext;
