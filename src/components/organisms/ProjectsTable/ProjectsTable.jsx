@@ -11,7 +11,7 @@ import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setMessage } = useContext(NotifierContext)
+  const { setMessage, setErrorMessage } = useContext(NotifierContext)
 
   const [projectToDelete, setProjectToDelete] = useState(null);
   const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
@@ -27,12 +27,22 @@ const ProjectsTable = () => {
   }
 
   const handleConfirmButton = () => {
-    const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
-    setMockProjectsState(updatedProjects);
+    try {
+      if (projectToDelete.id === 10) {
+        throw new Error("Please be kidding! You CAN'T delete this project!")
+      };
 
-    setProjectToDelete(null);
-    setMessage('Проект удален')
-    setIsModalOpen(false);
+      const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
+      setMockProjectsState(updatedProjects);
+
+      setProjectToDelete(null);
+      setMessage('Проект удален')
+      setIsModalOpen(false);
+
+    } catch (error) {
+      setErrorMessage(error.message)
+      setIsModalOpen(false);
+    }
   }
 
   return (
