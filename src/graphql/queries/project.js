@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 
-import ProjectInfo from "../fragments/projectFragment";
+import projectFragment from "../fragments/projectFragment";
 
 export default gql`
-  ${ProjectInfo}
+  ${projectFragment}
   query Project($projectId: ID!) {
     project(id: $projectId) {
       ...ProjectInfo

@@ -5,10 +5,6 @@ export default gql`
     description
     id
     name
-    tasks {
-      description
-      id
-      name
-    }
+    createdAt
   }
 `;

@@ -9,11 +9,16 @@ export const useProjects = () => {
   });
 
   return {
-    projects: data?.projects || [],
     loading,
     error,
-  };
+    projects: data?.projects || [],
+  }
 };
+
+
+
+
+
 
 export const useProject = ({ projectId }) => {
   const { data, loading, error } = useQuery(Project, {

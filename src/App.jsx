@@ -3,8 +3,7 @@ import { useState, useMemo } from "react";
 import { ApolloProvider } from '@apollo/client/react';
 
 import NotifierContext from "./context/NotifierContext";
-import apolloClient from './lib/apolloClient';
-
+import client from './lib/apolloClient';
 import HomePage from "./pages/HomePage";
 import InfoPage from "./pages/InfoPage";
 import ProjectsPage from "./pages/ProjectsPage";
@@ -23,7 +22,7 @@ const App = () => {
 
   return (
     <NotifierContext.Provider value={context}>
-      <ApolloProvider client={apolloClient}>
+      <ApolloProvider client={client}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
