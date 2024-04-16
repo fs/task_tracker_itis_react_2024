@@ -1,4 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
