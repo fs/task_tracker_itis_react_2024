@@ -11,7 +11,7 @@ import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setMessage } = useContext(NotifierContext)
+  const { setMessage, setErrorMessage } = useContext(NotifierContext)
 
   const [projectToDelete, setProjectToDelete] = useState(null);
   const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
@@ -27,42 +27,52 @@ const ProjectsTable = () => {
   }
 
   const handleConfirmButton = () => {
-    const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
-    setMockProjectsState(updatedProjects);
+    try {
+      if (projectToDelete.id === 10) {
+        throw new Error("Please be kidding! You CAN'T delete this project!")
+      };
 
-    setProjectToDelete(null);
-    setMessage('Проект удален')
-    setIsModalOpen(false);
+      const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
+      setMockProjectsState(updatedProjects);
+
+      setProjectToDelete(null);
+      setMessage('Проект удален')
+      setIsModalOpen(false);
+
+    } catch (error) {
+      setErrorMessage(error.message)
+      setIsModalOpen(false);
+    }
   }
 
   return (
     <>
       <Table>
         <thead>
-          <tr>
-            <TableHead>id</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Description</TableHead>
-            <TableHead>Actions</TableHead>
-          </tr>
+        <tr>
+          <TableHead>id</TableHead>
+          <TableHead>Name</TableHead>
+          <TableHead>Description</TableHead>
+          <TableHead>Actions</TableHead>
+        </tr>
         </thead>
 
         <tbody>
-          {mockProjectsState.map(({ id, name, description }) => {
-            return (
-              <tr key={id}>
-                <TableCol>{id}</TableCol>
-                <TableCol>{name}</TableCol>
-                <TableCol>{description}</TableCol>
+        {mockProjectsState.map(({ id, name, description }) => {
+          return (
+            <tr key={id}>
+              <TableCol>{id}</TableCol>
+              <TableCol>{name}</TableCol>
+              <TableCol>{description}</TableCol>
 
-                <TableColActions>
-                  <Button variant="light" onClick={() => {}}>Edit</Button>
-                  <Button variant="light" onClick={() => {}}>Show</Button>
-                  <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
-                </TableColActions>
-              </tr>
-            )
-          })}
+              <TableColActions>
+                <Button variant="light" onClick={() => {}}>Edit</Button>
+                <Button variant="light" onClick={() => {}}>Show</Button>
+                <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
+              </TableColActions>
+            </tr>
+          )
+        })}
         </tbody>
       </Table>
 

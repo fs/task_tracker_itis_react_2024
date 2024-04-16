@@ -5,6 +5,7 @@ import Header from '../../atoms/Header';
 import Footer from '../../atoms/Footer';
 import Notifier from "../../atoms/Notifier";
 
+
 import { Wrapper, ButtonWrapper } from './styled';
 
 const DefaultTemplate = ({ children }) => {
