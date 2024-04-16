@@ -15,16 +15,16 @@ const ProjectsTable = () => {
   return (
     <>
       <Table>
-      <thead>
+        <thead>
         <tr>
           <TableHead>id</TableHead>
           <TableHead>Name</TableHead>
           <TableHead>Description</TableHead>
           <TableHead>Actions</TableHead>
         </tr>
-      </thead>
+        </thead>
 
-      <tbody>
+        <tbody>
         {mockProjects.map(({ id, name, description }) => {
           return (
             <tr key={id}>
@@ -35,20 +35,20 @@ const ProjectsTable = () => {
                 <Button variant="primary" onClick={() => {}}>Edit</Button>
                 <Button variant="warning" onClick={() => {}}>Show</Button>
                 <Button variant="danger" onClick={() => DeleteClick({ id, name, description })}>Delete</Button>
-            </TableColActions>
+              </TableColActions>
             </tr>
           )
         })}
-      </tbody>
-    </Table>
+        </tbody>
+      </Table>
 
-    <DeleteModalPopUpWIndow
-      isVisible={showDeletedModal}
-      onHide={ModalClose}
-      onDelete={DeleteAccept}
-      projectId={selectedProject && setSelectedProject.id}
+      <DeleteModalPopUpWIndow
+        isVisible={showDeletedModal}
+        onHide={ModalClose}
+        onDelete={DeleteAccept}
+        projectId={selectedProject && setSelectedProject.id}
       />
-  </>
+    </>
   )
 }
 
