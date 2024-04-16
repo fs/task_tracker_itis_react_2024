@@ -7,11 +7,12 @@ import DeleteModal from '../../molecules/DeleteModal';
 import { mockProjects } from './mockProjects';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
+
 import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setMessage } = useContext(NotifierContext)
+  const { setMessage, setErrorMessage } = useContext(NotifierContext)
 
   const [projectToDelete, setProjectToDelete] = useState(null);
   const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
@@ -27,12 +28,20 @@ const ProjectsTable = () => {
   }
 
   const handleConfirmButton = () => {
-    const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
-    setMockProjectsState(updatedProjects);
-
-    setProjectToDelete(null);
-    setMessage('Проект удален')
-    setIsModalOpen(false);
+    try {
+      if (projectToDelete.id === 7) {
+        throw new Error("An error has occurred, please try again later.")
+      };
+      const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
+      setMockProjectsState(updatedProjects);
+      setProjectToDelete(null);
+      setMessage('The project has been deleted')
+      setIsModalOpen(false);
+      
+    } catch (error) {
+      setErrorMessage(error.message)
+      setIsModalOpen(false);
+    }
   }
 
   return (
