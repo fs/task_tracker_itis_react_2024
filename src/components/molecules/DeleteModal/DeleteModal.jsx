@@ -1,22 +1,30 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal, Button} from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 
-const DeleteModal = ({ text, onCancel, onDelete, show }) => {
+
+const DeleteModal = ({ isOpen, onCancel, onDelete }) => {
+  const handleDeleteProject = () => {
+    onDelete();
+  };
+
   return (
-  <Modal show={show} onHide={onCancel}>
-    <Modal.Header closeButton>
-      <Modal.Title>Delete project</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>{text}</Modal.Body>
-    <Modal.Footer>
-      <Button variant="light" onClick={onCancel}>
-        Cancel
-      </Button>
-      <Button variant="danger" onClick={onDelete}>
-        Delete
-      </Button>
-    </Modal.Footer>
-  </Modal>
+    <Modal show={isOpen} onHide={onCancel}>
+      <Modal.Header closeButton>
+        <Modal.Title>Delete project</Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body>
+        The project <strong>Project</strong> will be permanently deleted. Are you sure?
+      </Modal.Body>
+
+      <Modal.Footer>
+        <Button variant="light" onClick={onCancel}>
+          Cancel
+        </Button>
+        <Button variant="danger" onClick={handleDeleteProject}>
+          Delete
+        </Button>
+      </Modal.Footer>
+    </Modal>
   )
 }
 
