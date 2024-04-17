@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import Header from '../../atoms/Header';
@@ -9,9 +9,19 @@ import { Wrapper, ButtonWrapper } from './styled';
 const DefaultTemplate = ({ children }) => {
   const [isButtonVisible, setIsButtonvisible] = useState(false);
 
-  const scrollToTop = () => {
+  const handleScroll = () => {
+    setIsButtonvisible(window.scrollY >= 50);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  window.addEventListener(`scroll`, handleScroll);
+  
   return (
     <>
       <Header />
