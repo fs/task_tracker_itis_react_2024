@@ -1,69 +1,91 @@
 import Button from 'react-bootstrap/Button';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import DeleteModal from '../../molecules/DeleteModal';
 
 import { mockProjects } from './mockProjects';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
+import NotifierContext from "../../../context/NotifierContext";
 
 const ProjectsTable = () => {
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { setMessage, setErrorMessage } = useContext(NotifierContext)
+
   const [projectToDelete, setProjectToDelete] = useState(null);
+  const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
 
-  const handleDeleteButton = (project) => {
+  const handleOpenModal = (project) => {
     setProjectToDelete(project);
-    setShowDeleteModal(true);
+    setIsModalOpen(true);
   }
 
-  const handleDeleteCancelButton = () => {
+  const handleCancelButton = () => {
     setProjectToDelete(null);
-    setShowDeleteModal(false);
+    setIsModalOpen(false);
   }
 
-  const handleDeleteConfirmButton = () => {
-    // тут как будто удалили проект
-    setProjectToDelete(null);
-    setShowDeleteModal(false);
+  const handleConfirmButton = () => {
+    try {
+
+      // Made-up error to check the correctness of the functionality 
+      if (projectToDelete.id === 10) {
+        throw new Error("Please be kidding! You CAN'T delete this project!")
+      };
+
+      const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
+      setMockProjectsState(updatedProjects);
+
+      setProjectToDelete(null);
+      setMessage('Проект удален')
+      setIsModalOpen(false);
+      
+    } catch (error) {
+      setErrorMessage(error.message)
+      setIsModalOpen(false);
+    }
   }
 
   return (
     <>
-    <Table>
-      <thead>
-        <tr>
-          <TableHead>id</TableHead>
-          <TableHead>Name</TableHead>
-          <TableHead>Description</TableHead>
-          <TableHead>Actions</TableHead>
-        </tr>
-      </thead>
+      <Table>
+        <thead>
+          <tr>
+            <TableHead>id</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Description</TableHead>
+            <TableHead>Actions</TableHead>
+          </tr>
+        </thead>
 
-      <tbody>
-        {mockProjects.map(({ id, name, description }) => {
-          return (
-            <tr key={id}>
-              <TableCol>{id}</TableCol>
-              <TableCol>{name}</TableCol>
-              <TableCol>{description}</TableCol>
-              <TableColActions>
-                <Button variant="light" onClick={() => {}}>Edit</Button>
-                <Button variant="light" onClick={() => {}}>Show</Button>
-                <Button variant="danger" onClick={() => {handleDeleteButton({ id, name, description })}}>Delete</Button>
-              </TableColActions>
-            </tr>
-          )
-        })}
-      </tbody>
-    </Table>
+        <tbody>
+          {mockProjectsState.map(({ id, name, description }) => {
+            return (
+              <tr key={id}>
+                <TableCol>{id}</TableCol>
+                <TableCol>{name}</TableCol>
+                <TableCol>{description}</TableCol>
 
-    { (showDeleteModal && (
-      <DeleteModal text={`The project "${projectToDelete.name}" will be permanently deleted. Are you sure?`}
-      onCancel={handleDeleteCancelButton}
-      onDelete={handleDeleteConfirmButton}
-      show={showDeleteModal} />))
-    }
+                <TableColActions>
+                  <Button variant="light" onClick={() => {}}>Edit</Button>
+                  <Button variant="light" onClick={() => {}}>Show</Button>
+                  <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
+                </TableColActions>
+              </tr>
+            )
+          })}
+        </tbody>
+      </Table>
+
+      {isModalOpen && (
+        <DeleteModal
+          // projectName={mock.name}
+          onCancel={handleCancelButton}
+          onDelete={handleConfirmButton}
+          isOpen={isModalOpen}
+        />
+      )}
     </>
   );
 };
