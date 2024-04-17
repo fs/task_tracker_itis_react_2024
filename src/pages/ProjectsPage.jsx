@@ -1,3 +1,4 @@
+import Error from "../components/atoms/Error";
 import Loader from "../components/atoms/Loader";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import ProjectsTable from '../components/organisms/ProjectsTable';
@@ -11,7 +12,10 @@ const ProjectsPage = () => {
     <DefaultTemplate>
       <h2>Projects List</h2>
 
-      {error && !loading && <div>Ошибка</div>}
+      {error && !loading && 
+        <div>
+          <Error errorText={error}/>
+        </div>}
 
       {loading && 
         <center>
