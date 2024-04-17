@@ -1,3 +1,4 @@
+import Loader from "../components/atoms/Loader";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import ProjectsTable from '../components/organisms/ProjectsTable';
 
@@ -12,7 +13,10 @@ const ProjectsPage = () => {
 
       {error && !loading && <div>Ошибка</div>}
 
-      {loading && <div>Загрузка...</div>}
+      {loading && 
+        <center>
+          <Loader/>
+        </center>}
 
       {projects && !loading && <ProjectsTable projects={projects} />}
     </DefaultTemplate>
