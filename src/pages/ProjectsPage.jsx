@@ -3,7 +3,7 @@ import Loader from "../components/atoms/Loader";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import ProjectsTable from '../components/organisms/ProjectsTable';
 
-import { useProjects } from "../lib/hooks/project";
+import { useProjects } from "../lib/hooks/projects";
 
 const ProjectsPage = () => {
   const { projects, loading, error } = useProjects();
