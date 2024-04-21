@@ -1,20 +1,16 @@
 import Button from 'react-bootstrap/Button';
-
 import { useState, useContext } from 'react';
-
 import DeleteModal from '../../molecules/DeleteModal';
-
-import { mockProjects } from './mockProjects';
-
 import { Table, TableHead, TableCol, TableColActions } from './styled';
 import NotifierContext from "../../../context/NotifierContext";
+import { useProjects } from "../../../lib/hooks/project";
 
 const ProjectsTable = () => {
+  const { projects, loading, error: errorState } = useProjects();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setMessage, setErrorMessage } = useContext(NotifierContext)
 
   const [projectToDelete, setProjectToDelete] = useState(null);
-  const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
 
   const handleOpenModal = (project) => {
     setProjectToDelete(project);
@@ -34,8 +30,8 @@ const ProjectsTable = () => {
         throw new Error("Please be kidding! You CAN'T delete this project!")
       };
 
-      const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
-      setMockProjectsState(updatedProjects);
+      const updatedProjects = projects.filter(project => project.id !== projectToDelete.id);
+      setProjects(updatedProjects);
 
       setProjectToDelete(null);
       setMessage('Проект удален')
@@ -46,6 +42,9 @@ const ProjectsTable = () => {
       setIsModalOpen(false);
     }
   }
+
+  // DEBUGGING...
+  console.log(`PROJECTS TABLE -> `, projects)
 
   return (
     <>
@@ -60,12 +59,13 @@ const ProjectsTable = () => {
         </thead>
 
         <tbody>
-          {mockProjectsState.map(({ id, name, description }) => {
+          {projects.map(({ id, name, description, createdAt }) => {
             return (
               <tr key={id}>
                 <TableCol>{id}</TableCol>
                 <TableCol>{name}</TableCol>
                 <TableCol>{description}</TableCol>
+                <TableCol>{createdAt}</TableCol>
 
                 <TableColActions>
                   <Button variant="light" onClick={() => {}}>Edit</Button>

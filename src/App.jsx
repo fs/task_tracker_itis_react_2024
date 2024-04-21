@@ -23,6 +23,8 @@ const App = () => {
     [message, errorMessage],
   );
 
+  console.log("CLIENT URI : ", client.link)
+
   return (
     <NotifierContext.Provider value={context}>
       <ApolloProvider client={client}>
