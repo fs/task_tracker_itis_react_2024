@@ -1,9 +1,7 @@
 import Button from 'react-bootstrap/Button';
-
 import { useState, useContext } from 'react';
-
+import { Link } from "react-router-dom";
 import DeleteModal from '../../molecules/DeleteModal';
-
 import { Table, TableHead, TableCol, TableColActions } from './styled';
 import NotifierContext from "../../../context/NotifierContext";
 
@@ -46,14 +44,19 @@ const ProjectsTable = ({ projects }) => {
                 <TableCol>{id}</TableCol>
                 <TableCol>{name}</TableCol>
                 <TableCol>{description}</TableCol>
-
                 <TableColActions>
-                  <Button variant="light" onClick={() => {}}>Edit</Button>
-                  <Button variant="light" onClick={() => {}}>Show</Button>
-                  <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
+                  <Button variant="light" onClick={() => {}}>
+                    Edit
+                  </Button>
+                  <Link to={`/project/${id}`}>
+                    <Button variant="light">Show</Button>
+                  </Link>
+                  <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>
+                    Delete
+                  </Button>
                 </TableColActions>
               </tr>
-            )
+            );
           })}
         </tbody>
       </Table>
