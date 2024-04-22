@@ -9,8 +9,6 @@ const ProjectsPage = () => {
 
   return (
     <DefaultTemplate>
-      <h2>Projects List</h2>
-
       <ProjectsTable />
     </DefaultTemplate>
   );
