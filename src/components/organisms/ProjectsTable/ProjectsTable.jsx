@@ -49,7 +49,9 @@ const ProjectsTable = ({ projects }) => {
 
                 <TableColActions>
                   <Button variant="light" onClick={() => {}}>Edit</Button>
-                  <Button variant="light" onClick={() => {}}>Show</Button>
+                  <Button variant="light">
+                    <a href={`/projects/${  id}`}>Show</a>
+                  </Button>
                   <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
                 </TableColActions>
               </tr>

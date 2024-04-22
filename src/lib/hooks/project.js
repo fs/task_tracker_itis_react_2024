@@ -27,8 +27,8 @@ export const useProject = ({ projectId }) => {
   });
 
   return {
-    project: data?.project || {},
     loading,
     error,
+    project: data?.project || {}
   };
 }
