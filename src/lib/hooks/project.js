@@ -5,7 +5,7 @@ import Project from "src/graphql/queries/project";
 
 export const useProjects = () => {
   const { data, loading, error } = useQuery(Projects, {
-    // fetchPolicy: "cache-and-network",
+    fetchPolicy: "cache-and-network",
   });
 
   return {

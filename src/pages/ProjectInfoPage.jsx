@@ -3,6 +3,7 @@ import DefaultTemplate from "../components/templates/DefaultTemplate";
 import {useProject} from "../lib/hooks/project";
 import ProjectInfo from "../components/organisms/ProjectInfo";
 import Loader from "../components/atoms/Loader";
+import ErrorWindow from "../components/atoms/ErrorWindow";
 
 const ProjectInfoPage = () => {
 
@@ -12,7 +13,7 @@ const ProjectInfoPage = () => {
   return (
     <DefaultTemplate>
 
-      {error && !loading && <div>Ошибка</div>}
+      {error && !loading && <ErrorWindow title="Failed to fetch" desc={`Can't fetch and show project with id = ${  id}`}/>}
 
       {loading && <Loader />}
 
