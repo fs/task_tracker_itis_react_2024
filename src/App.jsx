@@ -6,6 +6,7 @@ import NotifierContext from "./context/NotifierContext";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import InfoPage from "./pages/InfoPage";
+import ProjectDetailsPage from "./components/organisms/ProjectsDetails/ProjectDetailsPage";
 import './App.css'
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<DeafaultTemplate><HomePage /></DeafaultTemplate>} />
             <Route path="/projects" element={<DeafaultTemplate><ProjectsPage /></DeafaultTemplate>} />
+            <Route path="/projects/:id" element={<ProjectDetailsPage />} />
             <Route path="/info" element={<DeafaultTemplate><InfoPage /></DeafaultTemplate>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

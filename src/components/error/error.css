@@ -1,0 +1,20 @@
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.error_container {
+    background-color: #ffebee;
+    color: #b71c1c;
+    padding: 10px;
+    border: 1px solid #b71c1c;
+    margin-top: 50px;
+}
+
+.error_message {
+    margin-top: 10px;
+}

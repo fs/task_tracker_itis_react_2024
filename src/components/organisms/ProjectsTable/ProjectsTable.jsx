@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 
 import { useState, useContext } from "react";
 
+import { Link } from "react-router-dom";
 import DeleteConfirmationModal from "../../molecules/DeleteConfirmationModal";
 
 import { mockProjects } from './mockProjects';
@@ -60,7 +61,8 @@ const ProjectsTable = () => {
               <TableCol>{description}</TableCol>
               <TableColActions>
                 <Button variant="btn btn-outline-primary" onClick={() => {}}>Edit</Button>
-                <Button variant="btn btn-outline-warning" onClick={() => {}}>Show</Button>
+                {/* eslint-disable-next-line no-template-curly-in-string */}
+                <Link to={`/projects/${id}`}><Button variant="btn btn-outline-dark" onClick={() => {}}>Show</Button></Link>
                 <Button variant="btn btn-outline-danger" onClick={() => handleOpenModal({id, name, description})}>Delete</Button>
               </TableColActions>
             </tr>

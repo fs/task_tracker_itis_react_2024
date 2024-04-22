@@ -7,14 +7,14 @@ export const Table = styled.table`
 
 export const TableHead = styled.th`
     padding: 1rem;
-    border-bottom: 1px solid #ffffff;
-    color: #FFFFFF;
+    border-bottom: 1px solid #000000;
+    color: #000000;
 `;
 
 export const TableCol = styled.td`
     padding: 1rem;
-    border-bottom: 1px solid #ffffff;
-    color: #FFFFFF;
+    border-bottom: 1px solid rgba(7, 7, 7, 0.7);
+    color: #000000;
 `;
 
 export const TableColActions = styled(TableCol)`

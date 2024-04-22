@@ -25,7 +25,7 @@ import "src/components/styles/Footer.css"
 
 const Footer = () => {
   return (
-    <footer className="footer" style={{ marginTop: '20px', backgroundColor: '#171517', color: '#FFFFFF', padding: '20px 0', textAlign: 'center' }}>
+    <footer className="footer" style={{ marginTop: '20px', backgroundColor: '#7593cc', color: '#FFFFFF', padding: '20px 0', textAlign: 'center' }}>
       <Typography variant="body2">
         © 2024 Stackers team
       </Typography>

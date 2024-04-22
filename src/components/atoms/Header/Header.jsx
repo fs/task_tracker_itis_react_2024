@@ -6,7 +6,7 @@ import styles from './Header.module.css'
 
 const Header = () => {
   return (
-    <AppBar position="static" style={{ background: '#03152d', color: '#FFFFFF' }}>
+    <AppBar position="static" style={{ background: '#7593cc', color: '#FFFFFF' }}>
       <Toolbar className={styles.root}>
         <Typography variant="h6" component={Link} to="/"  className={styles.title}>
           Task Tracker ITIS
