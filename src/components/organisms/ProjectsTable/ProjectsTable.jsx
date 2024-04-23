@@ -1,31 +1,27 @@
-import Button from 'react-bootstrap/Button';
-
-import { useState, useContext } from 'react';
-
-import DeleteModal from '../../molecules/DeleteModal';
-
+import { Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { mockProjects } from './mockProjects';
 import { Table, TableHead, TableCol, TableColActions } from './styled';
-import NotifierContext from "../../../context/NotifierContext";
+import ConfirmWindow from '../../molecules/ConfirmWindow';
 
-const ProjectsTable = ({ projects }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setMessage, setErrorMessage } = useContext(NotifierContext)
+const ProjectsTable = () => {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
 
+  const handleDelete = (projectId) => {
+    setSelectedProjectId(projectId);
+    setShowConfirmation(true);
+  };
 
-  const handleOpenModal = (project) => {
-    setIsModalOpen(true);
-  }
+  const confirmDelete = () => {
+    console.log(`Deleting project with ID: ${selectedProjectId}`);
+    setShowConfirmation(false);
+  };
 
-  const handleCancelButton = () => {
-    setErrorMessage('Удаление проекта отменено');
-    setIsModalOpen(false);
-  }
-
-  const handleConfirmButton = () => {
-    // добавить мутацию удаления проекта
-    setMessage('Проект удален');
-    setIsModalOpen(false);
-  }
+  const cancelDelete = () => {
+    setSelectedProjectId(null);
+    setShowConfirmation(false);
+  };
 
   return (
     <>
@@ -38,34 +34,26 @@ const ProjectsTable = ({ projects }) => {
             <TableHead>Actions</TableHead>
           </tr>
         </thead>
-
         <tbody>
-          {projects.map(({ id, name, description }) => {
-            return (
-              <tr key={id}>
-                <TableCol>{id}</TableCol>
-                <TableCol>{name}</TableCol>
-                <TableCol>{description}</TableCol>
-
-                <TableColActions>
-                  <Button variant="light" onClick={() => {}}>Edit</Button>
-                  <Button variant="light" onClick={() => {}}>Show</Button>
-                  <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
-                </TableColActions>
-              </tr>
-            )
-          })}
+          {mockProjects.map(({ id, name, description }) => (
+            <tr key={id}>
+              <TableCol>{id}</TableCol>
+              <TableCol>{name}</TableCol>
+              <TableCol>{description}</TableCol>
+              <TableColActions>
+                <Button variant="primary" onClick={() => {}}>Edit</Button>
+                <Button variant="warning" onClick={() => {}}>Show</Button>
+                <Button variant="danger" onClick={() => handleDelete(id)}>Delete</Button>
+              </TableColActions>
+            </tr>
+          ))}
         </tbody>
       </Table>
-
-      {isModalOpen && (
-        <DeleteModal
-          // projectName={mock.name}
-          onCancel={handleCancelButton}
-          onDelete={handleConfirmButton}
-          isOpen={isModalOpen}
-        />
-      )}
+      <ConfirmWindow
+        show={showConfirmation}
+        onHide={cancelDelete}
+        onConfirm={confirmDelete}
+      />
     </>
   );
 };

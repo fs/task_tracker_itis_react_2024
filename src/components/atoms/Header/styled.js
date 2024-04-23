@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header`
   align-items: center;
 
   padding: 1rem;
-  background-color: rgba(116, 66, 200, 0.7);
+  background-color: #3a74f7;
   color: white;
   font-size: 20px;
 
@@ -26,14 +26,4 @@ export const StyledLink = styled(Link)`
   color: white;
 
   font-size: 1rem;
-
-  padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
-  transition: color 0.5s ease, background-color 0.5s ease;
-
-  &:hover {
-    color: #808080;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
 `;

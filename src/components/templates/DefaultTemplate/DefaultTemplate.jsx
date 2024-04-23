@@ -1,31 +1,32 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import Header from '../../atoms/Header';
 import Footer from '../../atoms/Footer';
-import Notifier from "../../atoms/Notifier";
 
 import { Wrapper, ButtonWrapper } from './styled';
 
 const DefaultTemplate = ({ children }) => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
 
-  const handleToggleVisibility = () => {
-    if(window.scrollY > 200) {
-      setIsButtonVisible(true);
-    } else {
-      setIsButtonVisible(false);
-    }
-  }
-
   useEffect(() => {
-    document.addEventListener('scroll', handleToggleVisibility);
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setIsButtonVisible(true);
+      } else {
+        setIsButtonVisible(false);
+      }
+    };
 
-    return () => document.removeEventListener('scroll', handleToggleVisibility);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const scrollToTop = () => {
-    window.scroll({top: 0, behavior: 'smooth'});
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -36,15 +37,13 @@ const DefaultTemplate = ({ children }) => {
 
       {isButtonVisible && (
         <ButtonWrapper>
-          <Button variant="dark" onClick={scrollToTop}>Наверх</Button>
+          <Button variant="info" onClick={scrollToTop}>Go up</Button>
         </ButtonWrapper>
       )}
 
       <Footer />
-
-      <Notifier />
     </>
-  )
-}
+  );
+};
 
 export default DefaultTemplate;

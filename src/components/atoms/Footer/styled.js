@@ -8,7 +8,7 @@ export const Wrapper = styled.footer`
   height: 52px;
 
   padding: 1rem;
-  background-color: rgba(116, 66, 200, 0.7);
+  background-color: #3a74f7;
   color: white;
   font-size: 20px;
   position: absolute;

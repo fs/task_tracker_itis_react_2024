@@ -3,7 +3,7 @@ import { HeaderWrapper, Nav, StyledLink } from './styled';
 const Header = () => {
   return (
     <HeaderWrapper>
-      Task Tracker
+      Task Trakser
 
       <Nav>
         <StyledLink to="/">Home</StyledLink>
