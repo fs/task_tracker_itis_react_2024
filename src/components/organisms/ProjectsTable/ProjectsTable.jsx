@@ -2,33 +2,28 @@ import Button from 'react-bootstrap/Button';
 
 import { useState, useContext } from 'react';
 
+import { useNavigate } from "react-router-dom";
 import DeleteModal from '../../molecules/DeleteModal';
-
-import { mockProjects } from './mockProjects';
 
 import { Table, TableHead, TableCol, TableColActions } from './styled';
 import NotifierContext from "../../../context/NotifierContext";
 
-const ProjectsTable = () => {
+const ProjectsTable = ({projects}) => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { setMessage } = useContext(NotifierContext)
 
-  const [projectToDelete, setProjectToDelete] = useState(null);
-  const [mockProjectsState, setMockProjectsState] = useState([...mockProjects]);
-
   const handleOpenModal = (project) => {
-    setProjectToDelete(project);
     setIsModalOpen(true);
   }
 
   const handleCancelButton = () => {
-    setProjectToDelete(null);
     setIsModalOpen(false);
   }
 
   const handleConfirmButton = () => {
-    const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
-    setMockProjectsState(updatedProjects);
+    // const updatedProjects = mockProjectsState.filter(project => project.id !== projectToDelete.id);
+    // setMockProjectsState(updatedProjects);
 
     setProjectToDelete(null);
     setMessage('Проект удален')
@@ -48,7 +43,7 @@ const ProjectsTable = () => {
         </thead>
 
         <tbody>
-          {mockProjectsState.map(({ id, name, description }) => {
+          {projects.map(({ id, name, description }) => {
             return (
               <tr key={id}>
                 <TableCol>{id}</TableCol>
@@ -57,7 +52,7 @@ const ProjectsTable = () => {
 
                 <TableColActions>
                   <Button variant="light" onClick={() => {}}>Edit</Button>
-                  <Button variant="light" onClick={() => {}}>Show</Button>
+                  <Button variant="light" onClick={() => {navigate(`/project/${id}`)}}>Show</Button>
                   <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
                 </TableColActions>
               </tr>

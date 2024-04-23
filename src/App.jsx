@@ -7,6 +7,7 @@ import client from './lib/apolloClient';
 import HomePage from "./pages/HomePage";
 import InfoPage from "./pages/InfoPage";
 import ProjectsPage from "./pages/ProjectsPage";
+import ProjectPage from "./pages/ProjectPage";
 
 const App = () => {
   const [message, setMessage] = useState("");
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/info" element={<InfoPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/project/:id" element={<ProjectPage/>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
