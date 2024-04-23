@@ -14,7 +14,7 @@ const DeleteModal = ({ isOpen, projectName, onCancel, onDelete }) => {
       </Modal.Header>
 
       <Modal.Body>
-        The project <strong>Project</strong> will be permanently deleted. Are you sure?
+        The project <strong>{projectName}</strong> will be permanently deleted. Are you sure?
       </Modal.Body>
 
       <Modal.Footer>

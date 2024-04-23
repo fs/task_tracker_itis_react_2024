@@ -7,6 +7,8 @@ export const Wrapper = styled.div`
   min-height: calc(100vh - 52px - 62px);
   flex-grow: 1;
   padding: 1rem;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ButtonWrapper = styled.div`

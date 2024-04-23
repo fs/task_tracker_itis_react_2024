@@ -8,6 +8,9 @@ export const useProjects = () => {
     fetchPolicy: "cache-and-network",
   });
 
+  // DEBUGGING...
+  console.log(`Query response :`, data)
+
   return {
     loading,
     error,
