@@ -2,18 +2,32 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import ProjectInfo from "src/components/organisms/ProjectInfo";
+import Error from "src/components/atoms/Error";
+import Loader from "src/components/atoms/Loader";
 
-import DefaultTemplate from "src/components/templates/DefaultTemplate";
-import { useProject } from "src/lib/hooks/project";
+import { useProject } from "../lib/hooks/project";
+
+import DefaultTemplate from "../components/templates/DefaultTemplate";
 
 const ProjectPage = () => {
     const { id } = useParams()
-    const { project, loading, error } = useProject(id)
+    const { project, loading, error } = useProject({projectId: id})
+    console.log(project)
 
     return(
         <DefaultTemplate>
-            <h2> Project info page </h2>
-            <h2>{id}</h2>
+            <h2> Project info</h2>
+            {error && !loading && 
+                <div>
+                    <Error errorText={error}/>
+                </div>}
+
+            {loading && 
+                <center>
+                    <Loader/>
+                </center>}
+
+            {project && !loading && <ProjectInfo project={project} />}
         </DefaultTemplate>
     );
 };

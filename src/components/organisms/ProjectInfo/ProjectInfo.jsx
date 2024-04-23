@@ -1,13 +1,20 @@
+import React from "react";
+
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 const ProjectInfo = ({ project }) => {
     return (
-        <>
-            <h1>Project ID: {project.id}</h1>
-            <h2>Project Name: {project.name}</h2>
-            <div>
-                <h3>Description:</h3>
-                {project.descriptions}
-            </div>
-        </>
+        <Card>
+            <Card.Header>Project name: {project.name}</Card.Header>
+            <Card.Body>
+                <Card.Title>Project description</Card.Title>
+                <Card.Text>{project.description}</Card.Text>
+                <Link to="/projects">
+                    <Button variant="primary">Go back</Button>
+                </Link>
+            </Card.Body>
+        </Card>
     );
 }
 

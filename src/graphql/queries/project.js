@@ -4,7 +4,7 @@ import projectFragment from "../fragments/projectFragment";
 
 export default gql`
   ${projectFragment}
-  query Project($projectId: ID!) {
+  query ProjectQuerry($projectId: ID!) {
     project(id: $projectId) {
       ...ProjectInfo
     }
