@@ -1,3 +1,6 @@
+import Loader from "src/components/atoms/Loader";
+import FetchError from "src/components/atoms/FetchError";
+
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import ProjectsTable from '../components/organisms/ProjectsTable';
 
@@ -10,9 +13,9 @@ const ProjectsPage = () => {
     <DefaultTemplate>
       <h2>Projects List</h2>
 
-      {error && !loading && <div>Ошибка</div>}
+      {error && !loading && <FetchError />}
 
-      {loading && <div>Загрузка...</div>}
+      {loading && <Loader />}
 
       {projects && !loading && <ProjectsTable projects={projects} />}
     </DefaultTemplate>
