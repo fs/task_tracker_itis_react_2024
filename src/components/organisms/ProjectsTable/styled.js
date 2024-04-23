@@ -16,6 +16,8 @@ export const TableCol = styled.td`
 `;
 
 export const TableColActions = styled(TableCol)`
+  width: 20rem;
+
   button {
     margin-right: 1rem;
   }
