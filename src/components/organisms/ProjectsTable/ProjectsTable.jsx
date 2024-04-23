@@ -11,13 +11,14 @@ import NotifierContext from "../../../context/NotifierContext";
 const ProjectsTable = ({projects}) => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { setMessage } = useContext(NotifierContext)
+  const { setMessage, setErrorMessage } = useContext(NotifierContext)
 
   const handleOpenModal = (project) => {
     setIsModalOpen(true);
   }
 
   const handleCancelButton = () => {
+    setErrorMessage('Удаление проекта отменено');
     setIsModalOpen(false);
   }
 

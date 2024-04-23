@@ -1,5 +1,6 @@
 import DefaultTemplate from "../components/templates/DefaultTemplate";
 import ProjectsTable from '../components/organisms/ProjectsTable';
+
 import { useProjects } from "../lib/hooks/project";
 import Error from "../components/atoms/Error";
 import Loader from "../components/atoms/Loader";
@@ -7,8 +8,6 @@ import Loader from "../components/atoms/Loader";
 
 const ProjectsPage = () => {
   const { projects, loading, error } = useProjects();
-
-  console.log(projects, loading, error)
 
   return (
     <DefaultTemplate>
@@ -23,8 +22,6 @@ const ProjectsPage = () => {
             <ProjectsTable projects={projects}/>
           ))
       }
-
-
     </DefaultTemplate>
   );
 };
