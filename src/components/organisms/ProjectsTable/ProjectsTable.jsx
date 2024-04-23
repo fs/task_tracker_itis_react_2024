@@ -1,4 +1,5 @@
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import ProjectFetchingError from 'src/components/molecules/ErrorComponent/ProjectFetchingError';
 import DeleteModal from '../../molecules/DeleteModal';
@@ -85,7 +86,7 @@ const ProjectsTable = () => {
 
                   <TableColActions>
                     <Button variant="light" onClick={() => {}}>Edit</Button>
-                    <Button variant="light" onClick={() => {}}>Show</Button>
+                    <Link to={`/projects/${id}`}><Button variant="light">Show</Button></Link>
                     <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
                   </TableColActions>
                 </tr>
