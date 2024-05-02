@@ -15,11 +15,6 @@ export const useProjects = () => {
   }
 };
 
-
-
-
-
-
 export const useProject = ({ projectId }) => {
   const { data, loading, error } = useQuery(Project, {
     fetchPolicy: "cache-and-network",
