@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Button from 'react-bootstrap/Button';
 
 import { useState, useContext } from 'react';
@@ -49,7 +51,9 @@ const ProjectsTable = ({ projects }) => {
 
                 <TableColActions>
                   <Button variant="light" onClick={() => {}}>Edit</Button>
-                  <Button variant="light" onClick={() => {}}>Show</Button>
+                  <Link to={`/projects/${id}`}>
+                    <Button variant="light" onClick={() => {}}>Show</Button>
+                  </Link>
                   <Button variant="danger" onClick={() => handleOpenModal({ id, name, description })}>Delete</Button>
                 </TableColActions>
               </tr>
