@@ -3,6 +3,7 @@ import ProjectsTable from '../components/organisms/ProjectsTable';
 
 import { useProjects } from "../lib/hooks/project";
 import Loader from "../components/atoms/Loader";
+import Fetch from "../components/atoms/Fetch";
 
 const ProjectsPage = () => {
   const { projects, loading, error } = useProjects();
@@ -11,7 +12,7 @@ const ProjectsPage = () => {
     <DefaultTemplate>
       <h2>Projects List</h2>
 
-      {error && !loading && <div>Ошибка</div>}
+      {error && !loading && <Fetch message = "Не удалось загрузить содержимое"/>}
 
       {loading && <Loader/>}
 
