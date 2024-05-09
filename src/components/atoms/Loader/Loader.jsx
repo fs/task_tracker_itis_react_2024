@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoaderContainer, LoaderSpinner } from './styled'; // Импорт стилей
+import { LoaderContainer, LoaderSpinner } from './styled';
 
 const Loader = () => {
   return (
