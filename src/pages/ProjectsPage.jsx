@@ -2,6 +2,7 @@ import DefaultTemplate from "../components/templates/DefaultTemplate";
 import ProjectsTable from '../components/organisms/ProjectsTable';
 
 import { useProjects } from "../lib/hooks/project";
+import Loader from "../components/atoms/Loader";
 
 const ProjectsPage = () => {
   const { projects, loading, error } = useProjects();
@@ -12,7 +13,7 @@ const ProjectsPage = () => {
 
       {error && !loading && <div>Ошибка</div>}
 
-      {loading && <div>Загрузка...</div>}
+      {loading && <Loader/>}
 
       {projects && !loading && <ProjectsTable projects={projects} />}
     </DefaultTemplate>
